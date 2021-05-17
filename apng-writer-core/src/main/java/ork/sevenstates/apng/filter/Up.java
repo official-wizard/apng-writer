@@ -6,7 +6,7 @@ public final class Up extends None {
 	static final byte INDEX = 2;
 
 	@Override
-	protected void encodeRow(ByteBuffer in, int srcOffset, ByteBuffer out, int len, int destOffset) {
+	public void encodeRow(ByteBuffer in, int srcOffset, ByteBuffer out, int len, int destOffset) {
 		if (srcOffset - len < 0) { //1 line: copy as is 
 			super.encodeRow(in, srcOffset, out, len, destOffset);
 		} else {

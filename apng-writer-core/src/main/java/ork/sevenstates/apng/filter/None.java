@@ -2,11 +2,11 @@ package ork.sevenstates.apng.filter;
 
 import java.nio.ByteBuffer;
 
-public class None extends Filter {
+public class None extends AbstractFilter {
 	static final byte INDEX = 0;
 
 	@Override
-	protected void encodeRow(ByteBuffer in, int srcOffset, ByteBuffer out, int len, int destOffset) {
+	public void encodeRow(ByteBuffer in, int srcOffset, ByteBuffer out, int len, int destOffset) {
 		out.put(destOffset++, INDEX);
 		int bpl = getWidth() * getBpp();
 		ByteBuffer tmp = in.duplicate();

@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 
-abstract class LocalMinimum extends Filter {
+abstract class LocalMinimum extends AbstractFilter {
 	private final Filter[] simpleFilters = {
 			new None(),
 			new Sub(), 
@@ -53,7 +53,7 @@ abstract class LocalMinimum extends Filter {
 	}
 
 	@Override
-	protected void encodeRow(final ByteBuffer in, final int srcOffset, ByteBuffer out, final int len,
+	public void encodeRow(final ByteBuffer in, final int srcOffset, ByteBuffer out, final int len,
 			int destOffset) {
 		Integer minsize = null;
 		List<Callable<Entry<Integer, ByteBuffer>>> tasks = new ArrayList<>();

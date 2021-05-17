@@ -2,7 +2,7 @@ package ork.sevenstates.apng.filter;
 
 import java.nio.ByteBuffer;
 
-public final class Paeth extends Filter {
+public final class Paeth extends AbstractFilter {
 	static final byte INDEX = 4;
 
     /**
@@ -29,7 +29,7 @@ public final class Paeth extends Filter {
 	}
 
 	@Override
-	protected void encodeRow(ByteBuffer in, int srcOffset, ByteBuffer out, int len, int destOffset) {
+	public void encodeRow(ByteBuffer in, int srcOffset, ByteBuffer out, int len, int destOffset) {
 		out.put(destOffset++, INDEX);
 		
 		// data[x, y] = data[x, y] - paethPredictor(data[x - 1, y], data[x, y - 1], data[x - 1, y - 1])
