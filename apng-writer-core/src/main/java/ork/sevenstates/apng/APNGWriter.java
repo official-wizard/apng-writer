@@ -8,9 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
 import java.nio.channels.WritableByteChannel;
 import java.util.Map;
 
@@ -37,10 +35,6 @@ public final class APNGWriter extends AbstractAPNGWriter {
 		this(new FileOutputStream(f).getChannel(), alg, optimizer);
 	}
 	
-	public APNGWriter(OutputStream os, int alg, Optimizer optimizer) {
-		this(Channels.newChannel(os), alg, optimizer);
-	}
-	
 	public APNGWriter(WritableByteChannel out, int alg, Optimizer optimizer) {
 		super(alg, optimizer);
 		this.out = out;
@@ -48,14 +42,6 @@ public final class APNGWriter extends AbstractAPNGWriter {
 
 	public APNGWriter(String fName, int alg, Optimizer optimizer) throws FileNotFoundException {
 		this(new File(fName), alg, optimizer);
-	}
-	
-	public APNGWriter(OutputStream os, int alg) {
-		this(Channels.newChannel(os), alg, new Identity());
-	}
-	
-	public APNGWriter(WritableByteChannel out, int alg) {
-		this(out, alg, new Identity());
 	}
 	
 	private void ensureInitialized() throws IOException {

@@ -31,10 +31,6 @@ public final class APNGSeqWriter extends AbstractAPNGWriter {
 		out = new RandomAccessFile(f, "rw").getChannel();
 	}
 
-	public APNGSeqWriter(String fName, int alg, Optimizer optimizer) throws FileNotFoundException {
-		this(new File(fName), alg, optimizer);
-	}
-
 	public void writeImage(Image img, Dimension size, int fpsNum, int fpsDen) throws IOException {
 		ensureOpen();
 		if (img == null) {
@@ -70,7 +66,6 @@ public final class APNGSeqWriter extends AbstractAPNGWriter {
 		out.write(makeDAT(frameCount == 0 ? Consts.IDAT_SIG : Consts.fdAT_SIG, buffer));
 		frameCount++;
 	}
-
 
 
 	public void close() throws IOException {
