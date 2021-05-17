@@ -17,18 +17,19 @@ import ork.sevenstates.apng.filter.FilterFactory;
 import ork.sevenstates.apng.optimizing.Identity;
 import ork.sevenstates.apng.optimizing.Optimizer;
 
-public abstract class AbstractAPNGWriter implements Closeable {
+public abstract class AbstractAPNGWriter
+		implements Closeable
+{
 
-	protected boolean closed = false;
-	protected int frameCount = 0;
+	final private int fpsNum = 1;
+	final private int fpsDen = 10;
 
-	protected int sequenceNumber;
+	final Filter filter;
+	final Optimizer optimizer;
 
-	private int fpsNum = 1;
-	private int fpsDen = 10;
-	
-	protected Filter filter;
-	protected Optimizer optimizer;
+	int frameCount = 0;
+	int sequenceNumber;
+	boolean closed = false;
 
 	public AbstractAPNGWriter(int alg) {
 		this(alg, new Identity());
@@ -258,23 +259,6 @@ public abstract class AbstractAPNGWriter implements Closeable {
 		result.position(0);
 		
 		return result;
-	}
-
-
-	public int getFpsNum() {
-		return fpsNum;
-	}
-
-	public void setFpsNum(int fpsNum) {
-		this.fpsNum = fpsNum;
-	}
-
-	public int getFpsDen() {
-		return fpsDen;
-	}
-
-	public void setFpsDen(int fpsDen) {
-		this.fpsDen = fpsDen;
 	}
 
 	private static int gcd(int a, int b) { return b==0 ? a : gcd(b, a%b); }

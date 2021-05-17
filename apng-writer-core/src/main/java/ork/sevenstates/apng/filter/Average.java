@@ -2,7 +2,7 @@ package ork.sevenstates.apng.filter;
 
 import java.nio.ByteBuffer;
 
-public class Average extends Filter {
+public final class Average extends Filter {
 	static final byte INDEX = 3;
 
 	@Override

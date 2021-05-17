@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 
-public class Tools {
+public final class Tools {
 
 	public static BufferedImage paintImage(Image src, BufferedImage dst) {
 		Graphics2D g2d = dst.createGraphics();

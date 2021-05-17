@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import ork.sevenstates.apng.Tools;
 
 public class ARGBSubtractor implements Optimizer {
+
 	public static final double DEFAULT_THRESHOLD = 0.6d;
     private static final Logger LOGGER = Logger.getLogger(ARGBSubtractor.class.getName());
     private BufferedImage previous;

@@ -3,18 +3,22 @@ package ork.sevenstates.apng.optimizing;
 import java.awt.Dimension;
 import java.awt.Point;
 
-class SupplData {
+final class SupplData {
+
 	volatile long all;
 	volatile long modified;
 	Point topLeft;
 	Point bottomRight = new Point(0, 0);
 	volatile boolean accessedAtLeastOnce;
+
 	SupplData(int width, int height) {
 		topLeft = new Point(width, height);
 	}
+
 	SupplData(Dimension dim) {
 		topLeft = new Point(dim.width, dim.height);
 	}
+
 	void apply(int x, int y) {
 		accessedAtLeastOnce = true;
 		if (topLeft.x > x) topLeft.x = x;

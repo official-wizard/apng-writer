@@ -5,7 +5,7 @@ import java.util.AbstractMap;
 import java.util.Map.Entry;
 import java.util.zip.Deflater;
 
-public class DeflaterLocalMinimum extends LocalMinimum {
+public final class DeflaterLocalMinimum extends LocalMinimum {
 	public static final byte INDEX = -2;
 	@Override
 	protected Entry<Integer, ByteBuffer> doCall(ByteBuffer src, int srcOffset, int len, Filter f) {

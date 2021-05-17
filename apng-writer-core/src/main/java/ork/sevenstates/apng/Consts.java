@@ -1,7 +1,7 @@
 package ork.sevenstates.apng;
 
 
-public class Consts {
+public final class Consts {
 	public static final byte ZERO = 0;
 	
 	public static final int IHDR_SIG = 0x49484452;

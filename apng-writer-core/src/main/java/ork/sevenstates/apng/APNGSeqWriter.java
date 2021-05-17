@@ -13,7 +13,7 @@ import java.util.Map;
 import ork.sevenstates.apng.optimizing.Identity;
 import ork.sevenstates.apng.optimizing.Optimizer;
 
-public class APNGSeqWriter extends AbstractAPNGWriter {
+public final class APNGSeqWriter extends AbstractAPNGWriter {
 	private final FileChannel out;
 	private long actlBlockOffset = 0;
 

@@ -1,7 +1,7 @@
 package ork.sevenstates.apng.filter;
 
 
-public class FilterFactory {
+public final class FilterFactory {
 	/**
 	 * 
 	 * @see None#INDEX

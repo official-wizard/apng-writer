@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import java.util.AbstractMap;
 import java.util.Map.Entry;
 
-public class DiffLocalMinimum extends LocalMinimum {
+public final class DiffLocalMinimum extends LocalMinimum {
 	public static final byte INDEX = -1;
 	@Override
 	protected Entry<Integer, ByteBuffer> doCall(ByteBuffer src, int srcOffset, int len, Filter f) {

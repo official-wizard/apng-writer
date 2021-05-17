@@ -7,8 +7,10 @@ import java.util.logging.Logger;
 
 import ork.sevenstates.apng.Tools;
 
-public class ARGBSlicingSubtractor extends ARGBSubtractor {
+public final class ARGBSlicingSubtractor extends ARGBSubtractor {
+
     private static final Logger LOGGER = Logger.getLogger(Slicer.class.getName());
+
     public ARGBSlicingSubtractor(Double threshold) {
         super(threshold);
     }

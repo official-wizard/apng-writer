@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import ork.sevenstates.apng.Tools;
 
-public class Slicer extends Identity {
+public final class Slicer extends Identity {
     private static final Logger LOGGER = Logger.getLogger(Slicer.class.getName());
     private BufferedImage previous;
 

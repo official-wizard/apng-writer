@@ -2,7 +2,7 @@ package ork.sevenstates.apng.filter;
 
 import java.nio.ByteBuffer;
 
-public class Paeth extends Filter {
+public final class Paeth extends Filter {
 	static final byte INDEX = 4;
 
     /**

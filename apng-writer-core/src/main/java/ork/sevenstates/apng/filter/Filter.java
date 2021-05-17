@@ -3,6 +3,7 @@ package ork.sevenstates.apng.filter;
 import java.nio.ByteBuffer;
 
 public abstract class Filter {
+
 	private int width;
 	private int height;
 	private int bpp;

@@ -32,13 +32,7 @@ public class APNGZipMain {
 			
 		}
 		long time = System.currentTimeMillis();
-		APNGWriter writer = new APNGWriter(args[2], -2, new ARGBSlicingSubtractor(null));
-		int delay = Integer.parseInt(args[1]);
-		int gcd = gcd(1000, delay);
-		System.out.println(gcd);
-		writer.setFpsDen(1000/gcd);
-		writer.setFpsNum(delay/gcd);
-		
+		APNGWriter writer = new APNGWriter(args[2], -2, new ARGBSlicingSubtractor(0d));
 		boolean init = false;
 
 		for (ZipEntry zipEntry : zes) {
@@ -62,8 +56,6 @@ public class APNGZipMain {
 		zipFile.close();
 		System.out.println(System.currentTimeMillis() - time);
 	}
-	
-	private static int gcd(int a, int b) { return b==0 ? a : gcd(b, a%b); }
 	
 	private static class ZipEntryNameComparator implements Comparator<ZipEntry> {
 
