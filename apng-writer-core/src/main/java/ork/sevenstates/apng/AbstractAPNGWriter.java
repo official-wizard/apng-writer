@@ -17,9 +17,7 @@ import ork.sevenstates.apng.filter.FilterFactory;
 import ork.sevenstates.apng.optimizing.Identity;
 import ork.sevenstates.apng.optimizing.Optimizer;
 
-public abstract class AbstractAPNGWriter
-		implements Closeable
-{
+public abstract class AbstractAPNGWriter implements Closeable {
 
 	final private int fpsNum = 1;
 	final private int fpsDen = 10;
@@ -150,7 +148,7 @@ public abstract class AbstractAPNGWriter
 		return (int) crc.getValue();
 	}
 
-	protected ByteBuffer makeFCTL(Rectangle r, int fpsNum, int fpsDen, boolean succ) throws IOException {
+	protected ByteBuffer makeFCTL(Rectangle r, int fpsNum, int fpsDen, boolean succ, FCTLOpcode opcode) {
 		ByteBuffer bb = ByteBuffer.allocate(Consts.fcTL_TOTAL_LEN);
 
 		bb.putInt(Consts.fcTL_DATA_LEN);
@@ -165,7 +163,7 @@ public abstract class AbstractAPNGWriter
 		bb.putInt(r.y);
 		bb.putShort((short) fpsNum);
 		bb.putShort((short) fpsDen);
-		bb.put(Consts.ZERO);    	        //dispose 1:clear, 0: do nothing, 2: revert
+		bb.put(opcode.getOpcode());    	        //dispose 1:clear, 0: do nothing, 2: revert
 		bb.put(succ ? one : Consts.ZERO);	//blend   1:blend, 0: source
 
 		addChunkCRC(bb);

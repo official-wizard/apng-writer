@@ -83,14 +83,13 @@ public class APNGWriter extends AbstractAPNGWriter {
 		Tools.paintImage(img, container);
 
 		Map.Entry<Rectangle, BufferedImage> bi = optimizer.processImage(container);
-		
-//		ImageIO.write(bi.getValue(), "png", new File("debug." + System.currentTimeMillis() + ".png"));
 
 		BufferedImage value = bi.getValue();
 		Rectangle key = bi.getKey();
 		ByteBuffer buffer = getPixelBytes(value, key.getSize());
-		
-		out.write(makeFCTL(key, fpsNum, fpsDen, frameCount != 0));
+
+		FCTLOpcode opcode = value.getType() == BufferedImage.TYPE_INT_ARGB ? FCTLOpcode.CLEAR : FCTLOpcode.NOTHING;
+		out.write(makeFCTL(key, fpsNum, fpsDen, frameCount != 0, opcode));
 		out.write(makeDAT(frameCount == 0 ? Consts.IDAT_SIG : Consts.fdAT_SIG, buffer));
 		frameCount++;
 	}

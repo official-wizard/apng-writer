@@ -61,8 +61,9 @@ public final class APNGSeqWriter extends AbstractAPNGWriter {
 			out.write(ByteBuffer.wrap(Consts.getacTLArr())); // empty here, filled later
 		}
 
-		
-		out.write(makeFCTL(key, fpsNum, fpsDen, frameCount != 0));
+
+		FCTLOpcode opcode = value.getType() == BufferedImage.TYPE_INT_ARGB ? FCTLOpcode.CLEAR : FCTLOpcode.NOTHING;
+		out.write(makeFCTL(key, fpsNum, fpsDen, frameCount != 0, opcode));
 		out.write(makeDAT(frameCount == 0 ? Consts.IDAT_SIG : Consts.fdAT_SIG, buffer));
 		frameCount++;
 	}
