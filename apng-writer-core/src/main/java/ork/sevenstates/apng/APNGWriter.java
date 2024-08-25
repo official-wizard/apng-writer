@@ -15,7 +15,7 @@ import java.util.Map;
 import ork.sevenstates.apng.optimizing.Identity;
 import ork.sevenstates.apng.optimizing.Optimizer;
 
-public final class APNGWriter extends AbstractAPNGWriter {
+public class APNGWriter extends AbstractAPNGWriter {
 	private final WritableByteChannel out;
 	private int frameCount = 0;
 
